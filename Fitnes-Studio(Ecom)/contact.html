@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - FITrons</title>
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./footer.css">
+    <style>
+        /* Additional styles to match theme and layout */
+        .contact-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 350px;
+
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .add-contact-btn {
+            align-self: flex-start;
+        }
+        .contact-form input, .contact-form button {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        .contact-form input {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        .contact-form input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .contact-list {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+        .contact-item div {
+            flex: 1;
+        }
+        .contact-item button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .edit-btn {
+            background: rgb(173, 255, 80);
+            color: black;
+        }
+        .delete-btn {
+            background: rgb(255, 100, 100);
+            color: white;
+        }
+        .save-btn {
+            background: rgb(173, 255, 80);
+            color: black;
+        }
+        .cancel-btn {
+            background: rgb(200, 200, 200);
+            color: black;
+        }
+        .contact-title {
+            text-align: center;
+            color: rgb(173, 255, 80);
+        }
+        .contact-title {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    
+    <div class="contact-container">
+        <h2 class="contact-title">Manage Contacts</h2>
+        
+        <!-- Create Form -->
+        <form class="contact-form" id="contact-form">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="tel" id="phone" placeholder="Phone">
+            <button type="submit" id="bt1" class="add-contact-btn">Add Contact</button>
+        </form>
+        
+        <!-- Read/Update/Delete List -->
+        <ul class="contact-list" id="contact-list"></ul>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Left Section -->
+            <div class="footer-left">
+                <div class="footer-logo-section">
+                    <img src="./Sourses/logo1.png" alt="FITrons Logo" class="footer-logo">
+                    <h3>FITrons</h3>
+                </div>
+                <p class="footer-tagline">Your Go-To For Personalised Workouts, Meal Plans, And Expert Fitness Advice</p>
+            </div>
+
+            <!-- Center Section -->
+            <div class="footer-center">
+                <h4>Follow Us On</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <div class="footer-nav">
+                    <a href="">Home</a>
+                    <a href="./About.html">About</a>
+                    <a href="./services.html">Features</a>
+                    <a href="">Service</a>
+                    <a href="">Exercise</a>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="footer-right">
+                <h4>Contact</h4>
+                <p><strong>Monday-Sunday</strong></p>
+                <p>8:00 AM - 5:00 PM</p>
+                <p><a href="mailto:fitusion@gmail.com">fitusion@gmail.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 FITrons. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Load nav
+        fetch('./nav.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('nav-placeholder').innerHTML = data;
+        })
+        .catch(error => console.error('Error loading nav:', error));
+
+        // CRUD Logic
+        let contacts = JSON.parse(localStorage.getItem('contacts')) || [];
+        const form = document.getElementById('contact-form');
+        const list = document.getElementById('contact-list');
+        const submitBtn = document.getElementById('bt1');
+        let editingIndex = -1;
+
+        function renderContacts() {
+            list.innerHTML = '';
+            contacts.forEach((contact, index) => {
+                const li = document.createElement('li');
+                li.className = 'contact-item';
+                li.innerHTML = `
+                    <div>
+                        <strong>${contact.name}</strong><br>
+                        ${contact.email}<br>
+                        ${contact.phone || 'N/A'}
+                    </div>
+                    <div>
+                        <button class="edit-btn" onclick="editContact(${index})">Edit</button>
+                        <button class="delete-btn" onclick="deleteContact(${index})">Delete</button>
+                    </div>
+                `;
+                list.appendChild(li);
+            });
+        }
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+
+            if (editingIndex === -1) {
+                // Add mode
+                contacts.push({ name, email, phone });
+            } else {
+                // Edit mode
+                contacts[editingIndex] = { name, email, phone };
+                editingIndex = -1;
+                submitBtn.textContent = 'Add Contact';
+            }
+
+            localStorage.setItem('contacts', JSON.stringify(contacts));
+            form.reset();
+            renderContacts();
+        });
+
+        function editContact(index) {
+            const contact = contacts[index];
+            document.getElementById('name').value = contact.name;
+            document.getElementById('email').value = contact.email;
+            document.getElementById('phone').value = contact.phone;
+            editingIndex = index;
+            submitBtn.textContent = 'Save Contact';
+        }
+
+        function deleteContact(index) {
+            if (confirm('Delete this contact?')) {
+                contacts.splice(index, 1);
+                localStorage.setItem('contacts', JSON.stringify(contacts));
+                // if deleting the currently edited contact, reset edit state
+                if (editingIndex === index) {
+                    editingIndex = -1;
+                    form.reset();
+                    submitBtn.textContent = 'Add Contact';
+                } else if (editingIndex > index) {
+                    // adjust editingIndex after removal
+                    editingIndex--;
+                }
+                renderContacts();
+            }
+        }
+
+        renderContacts(); // Initial render
+    </script>
+</body>
+</html>

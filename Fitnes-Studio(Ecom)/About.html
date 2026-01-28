@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./About.css">
+    <link rel="stylesheet" href="./footer.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+<!-- 
+    <link rel="stylesheet" href="../animations/button.css"> -->
+
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+    <!-- About Page -->
+<head>
+<div class="brandlogo">
+    <a href="https://www.reebok.com/"><img src="./Sourses/brand logo/b1.webp"alt="REEBOK" id="b1"></a>
+    <a href="https://www.underarmour.in/"><img src="./Sourses/brand logo/b2.jpg" alt="UNDER ARMOUR" id="b2"></a>
+    <a href="https://www.adidas.co.in/"><img src="./Sourses/brand logo/b3.jpg" alt="ADIDAS" id="b3"></a>
+    <a href="https://in.puma.com/"><img src="./Sourses/brand logo/b4.jpg" alt="PUMA" id="b4"></a>
+    <a href="https://www.nike.com/in/"><img src="./Sourses/brand logo/b5.jpg" alt="NIKE" id="b5"></a>
+    <a href="https://www.thenorthface.com/"><img src="./Sourses/brand logo/b6.jpg" alt="THE NORTH FACE" id="b6"></a>
+</div>
+
+</head>
+
+<center>
+    <h1 id="mp1">Inspired to</h1>
+    <h1 id="mp2">Inspire Your Best Self</h1>
+    <p id="mp3">We're Your Partner In Achieving A Healthier, Stronger, And More Confident You</p>
+</center>
+
+
+<center>
+    <div class="parent">
+    <h1 id="i1"> <i class="fa-brands fa-nutritionix"></i>Nutrition Guidance </h1>
+    <h1 id="i2"><i class="fa-solid fa-pen-to-square"></i> Progress Tracking </h1>
+    <h1 id="i3"><i class="fa-solid fa-users"></i> Community support </h1>
+    <h1 id="i4"> <i class="fa-solid fa-fire"></i> Expert Triners </h1>
+    <h1 id="i5"> <i class="fa-solid fa-crown"></i> Premium Membership </h1>
+    <h1 id="i6"><i class="fa-solid fa-trophy"></i> Next-level Fitness Space</h1>
+    </div>
+
+    <aside>
+    <img src="./Sourses/brand logo/Builder1.png" alt="Image" id="Builder1" height="280px",width="200px">
+</aside>
+
+</center>
+
+<section>
+     <h1 id="mp4">Your Fitness</h1>
+    <h1 id="mp5">Goals, Their Expertise</h1>
+    <p id="mp6">Our team of experts is dedicated to helping you reach your fitness goals with personalized guidance and support.</p>
+</section>
+
+<section class="cards">
+    <div id="card1"><img src="./Sourses/scr1/R (3).png" alt=""></div>
+    <div id="card2"><img src="./Sourses/scr1/R (2).png" alt=""></div>
+    <div id="card3"><img src="./Sourses/scr1/R (1).png" alt=""></div>
+</section>
+
+<section id="buttons">
+        <div>
+        <button id="button1">Train Hard</button>
+        </div>
+        <div>
+        <button id="button2">Be Strength</button>
+        </div>
+        <div>
+        <button id="button3">Repeat</button>
+        </div>
+</section>
+
+<main>
+		<h1>About FITrons</h1>
+		<p>...page content...</p>
+	</main>
+
+    <!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Left Section -->
+        <div class="footer-left">
+            <div class="footer-logo-section">
+                <img src="./Sourses/logo1.png" alt="FITrons Logo" class="footer-logo">
+                <h3>FITrons</h3>
+            </div>
+            <p class="footer-tagline">Your Go-To For Personalised Workouts, Meal Plans, And Expert Fitness Advice</p>
+        </div>
+
+        <!-- Center Section -->
+        <div class="footer-center">
+            <h4>Follow Us On</h4>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1B9Jy17ibT/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/naveen798?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/neevan_7?igsh=aDQwdG95cnl5dnk4" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="footer-nav">
+                <a href="./home.html">Home</a>
+                <a href="./About.html">About</a>
+                <a href="./services.html">Features</a>
+                <a href="./services.html">Service</a>
+                <a href="">Exercise</a>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-right">
+            <h4>Contact</h4>
+            <p><strong>Monday-Sunday</strong></p>
+            <p>8:00 AM - 5:00 PM</p>
+            <p><a href="mailto:fitusion@gmail.com">fitusion@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 FITrons. All rights reserved.</p>
+    </div>
+</footer>
+
+    <script>
+		fetch('./nav.html')
+		.then(r => r.text())
+		.then(html => { document.getElementById('nav-placeholder').innerHTML = html; })
+		.catch(err => console.error('Error loading nav:', err));
+	</script>
+</body>
+</html>

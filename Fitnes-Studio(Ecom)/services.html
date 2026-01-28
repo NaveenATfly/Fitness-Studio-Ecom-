@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./services.css">
+    <link rel="stylesheet" href="./footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+</style>
+
+</head>
+<body>
+    <script src="./services.js" defer></script>
+    <div id="nav-placeholder"></div>
+    <head>
+        <div class="servicehead">
+        <h1>Discover</h1>
+        <h1>What Sets Us Apart</h1>
+        <p>We Deliver A Fitness Experience That's Truly One-Of-A-Kind. Explore How We Help You Achieve Your Goals Faster And Smarter.</p>
+        </div>
+    </head>
+    
+<!-- box animation -->
+
+    <div class="slider-container">
+    <div class="slider" id="slider">
+        <div class="card" id="c1">
+            <h5><i class="fa-solid fa-heart-pulse"></i> Cardio Training</h5>
+             <p1>Boost endurance and heart health with high-energy cardio sessions designed to keep you moving</p1><br>
+             <a href=""><button id="bt1">See plan</button></a>
+            <div id="b1"></div>
+        </div>
+        <div class="card" id="c2">
+            <h5> <i class="fa-solid fa-dumbbell"></i> Strength Build</h5>
+             <p2>Develop power and resilience through expert-guided strength training tailored to all fitness levels</p2><br>
+             <a href=""><button id="bt2">See plan</button></a>
+             <div id="b1"></div>
+        </div>
+        <div class="card" id="c3">
+            <h5><i class="fa-brands fa-drupal"></i> Fat Loss</h5>
+             <p3>Shed unwanted fat with dynamic workout routines and fat-burning strategies that deliver lasting results</p3><br>
+            <a href=""><button id="bt3">See plan</button></a>
+            <div id="b1"></div>
+        </div>
+        <div class="card" id="c4">
+            <h5> <i class="fa-solid fa-fire-flame-curved"></i> HIIT Workouts</h5>
+            
+            <p4>Maximize calorie burn and improve fitness with short, intense high-intensity interval training sessions</p4><br>
+            <a href=""><button id="bt4">See plan</button></a>
+            <div id="b1"></div>
+        </div>
+    </div>
+
+    <div class="dots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+        <span class="dot" onclick="goToSlide(3)"></span>
+    </div>
+
+</div>
+
+<script>
+    fetch('./nav.html')
+    .then(r => r.text())
+    .then(html => { document.getElementById('nav-placeholder').innerHTML = html; })
+    .catch(err => console.error('Error loading nav:', err));
+</script>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Left Section -->
+        <div class="footer-left">
+            <div class="footer-logo-section">
+                <img src="./Sourses/logo1.png" alt="FITrons Logo" class="footer-logo">
+                <h3>FITrons</h3>
+            </div>
+            <p class="footer-tagline"  id="tagline"
+            >Your Go-To For Personalised Workouts, Meal Plans, And Expert Fitness Advice</p>
+        </div>
+
+       <!-- Center Section -->
+        <div class="footer-center">
+            <h4>Follow Us On</h4>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1B9Jy17ibT/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/naveen798?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn" id="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/neevan_7?igsh=aDQwdG95cnl5dnk4" aria-label="Instagram" id="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter" id="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="footer-nav">
+                <a href="./home.html">Home</a>
+                <a href="./About.html">About</a>
+                <a href="./activitys.html">Features</a>
+                <a href="./services.html">Service</a>
+                <a href="">Exercise</a>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-right">
+            <h4>Contact</h4>
+            <p><strong>Monday-Sunday</strong></p>
+            <p>8:00 AM - 5:00 PM</p>
+            <p><a href="mailto:fitusion@gmail.com">fitusion@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 FITrons. All rights reserved.</p>
+    </div>
+</footer>
+<script>
+const p = document.getElementById("tagline");
+const words = p.innerText.split(" ");
+
+p.innerHTML = `
+  ${words.slice(0,5).join(" ")}<br>
+  ${words.slice(5).join(" ")}
+`;
+</script>
+
+</body>
+</html>

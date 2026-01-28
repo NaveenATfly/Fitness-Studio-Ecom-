@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./activity.css">
+    <link rel="stylesheet" href="./footer.css">
+     <!--FONT AWESOME-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+</style>
+
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <head>
+        <div class="top">
+            <h1>Train Smarter</h1>
+            <h1>Unleash Your Potential</h1>
+            <p>Unlock Your Full Potential With Our Expertly Designed Courses, Tailored To Help You Maximize Results in Less Time.</p>
+        </div>
+    </head>
+
+<center>
+    <img src=".//Sourses/activity/img1.png" alt="" id="img1">
+    
+    <img src=".//Sourses/activity/img2.png" alt="" id="img2">
+    
+    <img src=".//Sourses/activity/img3.png" alt="" id="img3"><br>
+    
+    <img src=".//Sourses/activity/img4.png" alt="" id="img4">
+    
+    <img src=".//Sourses/activity/img5.png" alt="" id="img5">
+    
+    <img src=".//Sourses/activity/img6.png" alt="" id="img6">
+    
+</center>
+
+<center>
+<div id="discription">
+    <h1>Barbell Basics</h1>
+    <h1>Kettlebell Masterclass</h1>
+    <h1>Cardio Power Boost</h1>
+    <h1>Hypertrophy</h1>
+    <h1>Rope Climbing</h1>
+    <h1>TRX Suspension</h1>
+</div>
+</center>
+
+<center>
+     <div class="bottom">
+            <h1>Experience</h1>
+            <h1>Fitness Like Never Before</h1>
+            <p>Transform Your Body and Mind with Our Expertly Designed Courses, Tailored To Help You Maximize Results in Less Time.</p>
+        </div>
+</center>
+
+<section class="cards">
+    <div class="card1">
+        <img src="./Sourses/activity/act2.png" alt="" id="act1">
+        <h3>Endurance Evolution</h3>
+       <div id="p1"> <p>Boost Your Stamina And Resilience With Tailored Cardio And Endurance Workouts Designed To Keep You Moving Stronger For Longer.</p>
+        <a href=""><button id="b1">Read more</button></a>
+        <img src="./Sourses/activity/l2.png" alt="" id="l2">
+    </div>
+
+    </div>
+    <div class="card2">
+        <img src="./Sourses/activity/act1.png" alt="" id="act2">
+        <h2>Speed Surge</h2>
+        <p id="p2">Boost Your Agility And Explosiveness With High-Intensity Sprint And Movement Drills. Speed Surge Is Designed To Take Your Performance To The Next Level!</p>
+        <a href=""><button id="b2">Read more</button></a>
+          <img src="./Sourses/activity/l1.png" alt="" id="l1">
+    </div>
+</section>
+
+
+<main>
+		<h1>Activities</h1>
+		<p>...page content...</p>
+	</main>
+
+    <script>
+		fetch('./nav.html')
+		.then(r => r.text())
+		.then(html => { document.getElementById('nav-placeholder').innerHTML = html; })
+		.catch(err => console.error('Error loading nav:', err));
+	</script>
+
+    <!-- Footer -->
+ 
+<footer class="footer">
+    <div class="footer-container">
+        <!-- Left Section -->
+        <div class="footer-left">
+            <div class="footer-logo-section">
+                <img src="./Sourses/logo1.png" alt="FITrons Logo" class="footer-logo" id="l01">
+                <h3>FITrons</h3>
+            </div>
+            <p class="footer-tagline" id="tagline">Your Go-To For Personalised Workouts, Meal Plans, And Expert Fitness Advice</p>
+        </div>
+
+        <!-- Center Section -->
+        <div class="footer-center">
+            <h4>Follow Us On</h4>
+            <div class="social-links">
+                <a href="https://www.facebook.com/share/1B9Jy17ibT/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/naveen798?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" aria-label="LinkedIn" id="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/neevan_7?igsh=aDQwdG95cnl5dnk4" aria-label="Instagram" id="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter" id="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="footer-nav">
+                <a href="./home.html">Home</a>
+                <a href="./About.html">About</a>
+                <a href="./activitys.html">Features</a>
+                <a href="./services.html">Service</a>
+                <a href="">Exercise</a>
+            </div>
+        </div>
+
+        <!-- Right Section -->
+        <div class="footer-right">
+            <h4>Contact</h4>
+            <p><strong>Monday-Sunday</strong></p>
+            <p>8:00 AM - 5:00 PM</p>
+            <p><a href="mailto:fitusion@gmail.com">fitusion@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 FITrons. All rights reserved.</p>
+    </div>
+</footer>
+
+<script>
+const p = document.getElementById("tagline");
+const words = p.innerText.split(" ");
+
+p.innerHTML = `
+  ${words.slice(0,5).join(" ")}<br>
+  ${words.slice(5).join(" ")}
+`;
+</script>
+
+
+</body>
+</html>
